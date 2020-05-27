@@ -1,4 +1,5 @@
 ﻿using triluatsoft.tls.EntityFramework;
+using triluatsoft.tls.Migrations.Seed.Tenants.HNH;
 
 namespace triluatsoft.tls.Migrations.Seed.Host
 {
@@ -17,6 +18,9 @@ namespace triluatsoft.tls.Migrations.Seed.Host
             new DefaultLanguagesCreator(_context).Create();
             new HostRoleAndUserCreator(_context).Create();
             new DefaultSettingsCreator(_context).Create();
+
+            new InitialPeopleCreator(_context).Create();
+            new InitialPeopleAndPhoneCreator(_context).Create();
 
             _context.SaveChanges();
         }

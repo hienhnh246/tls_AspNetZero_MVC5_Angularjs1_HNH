@@ -207,6 +207,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HNH\People\Dto\CreatePersonInput.cs" />
+    <Compile Include="HNH\People\Dto\EditPersonInput.cs" />
+    <Compile Include="HNH\People\Dto\EditPhoneInput.cs" />
+    <Compile Include="HNH\People\Dto\GetPeopleInput.cs" />
+    <Compile Include="HNH\People\Dto\GetPersonForEditInput.cs" />
+    <Compile Include="HNH\People\Dto\GetPersonForEditOutput.cs" />
+    <Compile Include="HNH\People\Dto\GetPhoneForEditInput.cs" />
+    <Compile Include="HNH\People\Dto\GetPhoneForEditOutput.cs" />
+    <Compile Include="HNH\People\Dto\PhoneInPersonListInput.cs" />
+    <Compile Include="HNH\People\PersonAppService.cs" />
+    <Compile Include="HNH\People\Dto\PersonListDto.cs" />
+    <Compile Include="HNH\People\Dto\PhoneInPersonListDto.cs" />
+    <Compile Include="HNH\People\IPersonAppService.cs" />
+    <Compile Include="HNH\People\Dto\AddPhoneInput.cs" />
     <Compile Include="tlsApplicationModule.cs" />
     <Compile Include="tlsAppServiceBase.cs" />
     <Compile Include="AppConsts.cs" />

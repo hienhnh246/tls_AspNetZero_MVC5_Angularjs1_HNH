@@ -462,7 +462,21 @@
     <Compile Include="Migrations\201710131158195_merge_migration.Designer.cs">
       <DependentUpon>201710131158195_merge_migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005261733339_HNH_Added_Persons_Table.cs" />
+    <Compile Include="Migrations\202005261733339_HNH_Added_Persons_Table.Designer.cs">
+      <DependentUpon>202005261733339_HNH_Added_Persons_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005270420205_HNH_Added_Phones_Table.cs" />
+    <Compile Include="Migrations\202005270420205_HNH_Added_Phones_Table.Designer.cs">
+      <DependentUpon>202005270420205_HNH_Added_Phones_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.cs" />
+    <Compile Include="Migrations\202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.Designer.cs">
+      <DependentUpon>202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleAndPhoneCreator.cs" />
+    <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleCreator.cs" />
     <Compile Include="tlsDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultLanguagesCreator.cs" />
@@ -666,6 +680,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710131158195_merge_migration.resx">
       <DependentUpon>201710131158195_merge_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005261733339_HNH_Added_Persons_Table.resx">
+      <DependentUpon>202005261733339_HNH_Added_Persons_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005270420205_HNH_Added_Phones_Table.resx">
+      <DependentUpon>202005270420205_HNH_Added_Phones_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.resx">
+      <DependentUpon>202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

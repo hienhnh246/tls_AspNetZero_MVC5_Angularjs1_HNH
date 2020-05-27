@@ -176,6 +176,14 @@ appModule.config([
             });
         }
 
+        if (abp.auth.hasPermission('Pages.Tenant.PhoneBook')) {
+            $stateProvider.state('tenant.phonebook', {
+                url: '/phonebook',
+                templateUrl: '~/App/tenant/views/hnh/phonebook/index.cshtml',
+                menu: 'PhoneBook'
+            });
+        }
+
         //$qProvider settings
         $qProvider.errorOnUnhandledRejections(false);
     }

@@ -38,6 +38,13 @@ namespace triluatsoft.tls.Web.App.Startup
                     requiredPermissionName: AppPermissions.Pages_Tenant_Dashboard
                     )
                 ).AddItem(new MenuItemDefinition(
+                    PageNames.App.Tenant.PhoneBook,
+                    L("PhoneBook"),
+                    url: "tenant.phonebook",
+                    icon: "glyphicon glyphicon-book",
+                    requiredPermissionName: AppPermissions.Pages_Tenant_PhoneBook
+                    )
+                ).AddItem(new MenuItemDefinition(
                     PageNames.App.Common.Administration,
                     L("Administration"),
                     icon: "icon-wrench"

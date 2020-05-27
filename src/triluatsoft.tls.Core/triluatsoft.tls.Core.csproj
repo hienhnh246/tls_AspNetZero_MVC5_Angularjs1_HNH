@@ -194,6 +194,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HNH\People\Person.cs" />
+    <Compile Include="HNH\Phones\Phone.cs" />
+    <Compile Include="HNH\Phones\PhoneType.cs" />
     <Compile Include="tlsConsts.cs" />
     <Compile Include="tlsCoreModule.cs" />
     <Compile Include="tlsDomainServiceBase.cs" />
@@ -291,6 +294,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Localization\tls\tls-vi.xml" />
     <EmbeddedResource Include="Localization\tls\tls-ar.xml" />
     <EmbeddedResource Include="Localization\tls\tls-zh-CN.xml" />
     <EmbeddedResource Include="Localization\tls\tls-de.xml" />

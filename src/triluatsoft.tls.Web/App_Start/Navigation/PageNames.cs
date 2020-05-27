@@ -26,6 +26,8 @@ namespace triluatsoft.tls.Web.Navigation
             {
                 public const string Dashboard = "Dashboard.Tenant";
                 public const string Settings = "Administration.Settings.Tenant";
+
+                public const string PhoneBook = "PhoneBook.Tenant";
             }
         }
 

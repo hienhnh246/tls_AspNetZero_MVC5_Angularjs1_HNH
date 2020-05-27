@@ -50,5 +50,9 @@
   {
     "outputFile": "Common/Styles/core.css",
     "inputFile": "Common/Styles/core.less"
+  },
+  {
+    "outputFile": "App/tenant/views/hnh/phonebook/index.css",
+    "inputFile": "App/tenant/views/hnh/phonebook/index.less"
   }
 ]

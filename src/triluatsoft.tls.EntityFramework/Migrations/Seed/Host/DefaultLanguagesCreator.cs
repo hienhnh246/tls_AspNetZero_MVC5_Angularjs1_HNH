@@ -16,15 +16,16 @@ namespace triluatsoft.tls.Migrations.Seed.Host
             InitialLanguages = new List<ApplicationLanguage>
             {
                 new ApplicationLanguage(null, "en", "English", "famfamfam-flag-gb"),
-                new ApplicationLanguage(null, "ar", "العربية", "famfamfam-flag-sa"),
-                new ApplicationLanguage(null, "de", "German", "famfamfam-flag-de"),
-                new ApplicationLanguage(null, "it", "Italiano", "famfamfam-flag-it"),
-                new ApplicationLanguage(null, "fr", "Français", "famfamfam-flag-fr"),
-                new ApplicationLanguage(null, "pt-BR", "Portuguese", "famfamfam-flag-br"),
-                new ApplicationLanguage(null, "tr", "Türkçe", "famfamfam-flag-tr"),
-                new ApplicationLanguage(null, "ru", "Русский", "famfamfam-flag-ru"),
-                new ApplicationLanguage(null, "zh-CN", "简体中文", "famfamfam-flag-cn"),
-                new ApplicationLanguage(null, "es", "Español", "famfamfam-flag-es")
+                new ApplicationLanguage(null, "vi", "Vietnamese", "famfamfam-flag-vn")
+                //new ApplicationLanguage(null, "ar", "العربية", "famfamfam-flag-sa"),
+                //new ApplicationLanguage(null, "de", "German", "famfamfam-flag-de"),
+                //new ApplicationLanguage(null, "it", "Italiano", "famfamfam-flag-it"),
+                //new ApplicationLanguage(null, "fr", "Français", "famfamfam-flag-fr"),
+                //new ApplicationLanguage(null, "pt-BR", "Portuguese", "famfamfam-flag-br"),
+                //new ApplicationLanguage(null, "tr", "Türkçe", "famfamfam-flag-tr"),
+                //new ApplicationLanguage(null, "ru", "Русский", "famfamfam-flag-ru"),
+                //new ApplicationLanguage(null, "zh-CN", "简体中文", "famfamfam-flag-cn"),
+                //new ApplicationLanguage(null, "es", "Español", "famfamfam-flag-es")
             };
         }
 

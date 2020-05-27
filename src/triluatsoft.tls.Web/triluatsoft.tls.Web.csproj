@@ -611,6 +611,15 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
+    <Content Include="App\tenant\views\hnh\phonebook\createPersonModal.js" />
+    <Content Include="App\tenant\views\hnh\phonebook\editPersonModal.js" />
+    <Content Include="App\tenant\views\hnh\phonebook\index.css">
+      <DependentUpon>index.less</DependentUpon>
+    </Content>
+    <Content Include="App\tenant\views\hnh\phonebook\index.js" />
+    <Content Include="App\tenant\views\hnh\phonebook\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
@@ -2913,6 +2922,10 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="App\tenant\views\hnh\phonebook\index.cshtml" />
+    <Content Include="App\tenant\views\hnh\phonebook\createPersonModal.cshtml" />
+    <Content Include="App\tenant\views\hnh\phonebook\index.less" />
+    <Content Include="App\tenant\views\hnh\phonebook\editPersonModal.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

@@ -236,6 +236,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HNH\People\PersonAppService_Tests.cs" />
     <Compile Include="tlsTestModule.cs" />
     <Compile Include="AppTestBase.cs" />
     <Compile Include="Auditing\AuditLogAppService_Tests.cs" />

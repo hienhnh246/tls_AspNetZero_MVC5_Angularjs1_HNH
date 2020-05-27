@@ -43,7 +43,12 @@
         public const string Pages_Tenant_Dashboard = "Pages.Tenant.Dashboard";
 
         public const string Pages_Administration_Tenant_Settings = "Pages.Administration.Tenant.Settings";
-        
+
+        public const string Pages_Tenant_PhoneBook = "Pages.Tenant.PhoneBook";
+        public const string Pages_Tenant_PhoneBook_CreatePerson = "Pages.Tenant.PhoneBook.CreatePerson";
+        public const string Pages_Tenant_PhoneBook_EditPerson = "Pages.Tenant.PhoneBook.EditPerson";
+        public const string Pages_Tenant_PhoneBook_DeletePerson = "Pages.Tenant.PhoneBook.DeletePerson";
+
         //HOST-SPECIFIC PERMISSIONS
 
         public const string Pages_Editions = "Pages.Editions";
