@@ -20,11 +20,11 @@
     </div>
     <div class="portlet light margin-bottom-0">
         <div class="portlet-body">
-            <h3>@L("AllPeople") ({{vm.persons.length}})</h3>
+            <h3>@L("AllPeople") ({{vm.personPage.totalPerson}})</h3>
 
             <div class="form">
                 <form class="horizontal-form">
-                    <div class="form-body" enter-key="vm.getPeople()">
+                    <div class="form-body" enter-key="vm.getPeoplePagination()">
                         <div class="row margin-bottom-10">
                             <div class="col-md-12">
                                 <div class="inputs inputs-full-width">
@@ -32,7 +32,7 @@
                                         <div class="input-group">
                                             <input ng-model="vm.filterText" auto-focus class="form-control" placeholder="@L("SearchWithThreeDot")" type="text">
                                             <span class="input-group-btn">
-                                                <button ng-click="vm.getPeople()" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                                                <button ng-click="vm.getPeoplePagination()" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
                                             </span>
                                         </div>
                                     </div>
@@ -80,10 +80,11 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="phone in person.phones">
-                                    <td>
+                                    <td style="text-align:center">
                                         @*<button ng-click="vm.deletePhone(phone, person)" class="btn btn-sm btn-default">
                                                 <i class="icon-trash"></i>
                                             </button>*@
+                                        {{$index+1}}
                                     </td>
                                     <td>{{vm.getPhoneTypeAsString(phone.type)}}</td>
                                     <td>{{phone.number}}</td>
@@ -96,7 +97,7 @@
                                     </td>
                                     <td>
                                         <select name="Type" class="form-control" ng-model="person.newPhone.type">
-                                            <option value="">---Please select---</option>
+                                            <option value="">---@L("PleaseSelect")---</option>
                                             <option value="0">@L("PhoneType_Mobile")</option>
                                             <option value="1">@L("PhoneType_Home")</option>
                                             <option value="2">@L("PhoneType_Business")</option>
@@ -108,6 +109,15 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="row margin-top-10" style="text-align:center">
+                    <span>
+                        <button ng-click="vm.backPersonPage()" class="btn btn-default" type="button">Back</button>
+                        <span style="margin-left:20px; margin-right:20px">{{vm.personPage.personPageNum}} / {{vm.personPage.totalPersonPage}}</span>
+                        <button ng-click="vm.nextPersonPage()" class="btn btn-default" type="button">Next</button>
+                    </span>
+                </div>
+
             </div>
 
         </div>

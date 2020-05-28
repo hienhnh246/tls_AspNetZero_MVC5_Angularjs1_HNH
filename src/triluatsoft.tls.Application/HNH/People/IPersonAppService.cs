@@ -9,6 +9,8 @@ namespace triluatsoft.tls.HNH.People
     {
         Task<ListResultDto<PersonListDto>> GetPeople(GetPeopleInput input);
 
+        Task<PagedResultDto<PersonListDto>> GetPeoplePagination(GetPeopleFilterAndPaginationInput input);
+
         Task<GetPersonForEditOutput> GetPersonForEdit(GetPersonForEditInput input);
 
         Task CreatePerson(CreatePersonInput input);

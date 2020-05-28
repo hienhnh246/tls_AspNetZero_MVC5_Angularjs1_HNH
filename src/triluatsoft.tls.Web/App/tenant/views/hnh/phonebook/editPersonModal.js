@@ -57,7 +57,7 @@
             }
 
             vm.editPhone = function (phone, person) {
-                if (!phone || !phone.type || !phone.number) {
+                if (!phone || !phone.typeSelect || !phone.number) {
                     abp.message.warn(app.localize('WarnPhoneInput'));
                     return;
                 }

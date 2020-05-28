@@ -11,6 +11,7 @@
             vm.loading = false;            
             vm.filterText = null;
             vm.persons = [];
+            vm.personPage = [];
             vm.editingPhone = null;
 
             vm.permissions = {
@@ -37,6 +38,49 @@
                 });
             };
 
+            function getPeoplePagination() {
+                vm.loading = true;
+                vm.personPage.personPageNum = 1;
+                vm.personPage.maxResultCount = 5;
+
+                personService.getPeoplePagination({
+                    skipCount: (vm.personPage.personPageNum - 1) * vm.personPage.maxResultCount,
+                    maxResultCount: vm.personPage.maxResultCount
+                }).then(function (result) {
+                    vm.persons = result.data.items;
+                    vm.personPage.totalPerson = result.data.totalCount;
+                    vm.personPage.totalPersonPage = Math.ceil(result.data.totalCount / vm.personPage.maxResultCount);
+                }).finally(function () {
+                    vm.loading = false;
+                });
+            }
+
+            vm.getPeoplePagination = function () {
+                personService.getPeoplePagination({
+                    filter: vm.filterText,
+                    skipCount: (vm.personPage.personPageNum - 1) * vm.personPage.maxResultCount,
+                    maxResultCount: vm.personPage.maxResultCount
+                }).then(function (result) {
+                    vm.persons = result.data.items;
+                    vm.personPage.totalPerson = result.data.totalCount;
+                    vm.personPage.totalPersonPage = Math.ceil(result.data.totalCount / vm.personPage.maxResultCount);
+                });
+            };
+
+            vm.nextPersonPage = function () {
+                if (vm.personPage.personPageNum < vm.personPage.totalPersonPage) {
+                    vm.personPage.personPageNum = vm.personPage.personPageNum + 1;
+                    vm.getPeoplePagination();
+                }
+            };
+
+            vm.backPersonPage = function () {
+                if (vm.personPage.personPageNum > 1) {
+                    vm.personPage.personPageNum = vm.personPage.personPageNum - 1;
+                    vm.getPeoplePagination();
+                }
+            };
+
             vm.openCreatePersonModal = function () {
                 var modalInstance = $uibModal.open({
                     templateUrl: '~/App/tenant/views/hnh/phonebook/createPersonModal.cshtml',
@@ -45,7 +89,7 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getPeople();
+                    getPeoplePagination();
                 });
             };   
 
@@ -62,7 +106,7 @@
                 });
 
                 modalInstance.result.then(function () {
-                    getPeople();
+                    getPeoplePagination();
                 });
             };  
 
@@ -75,7 +119,7 @@
                                 id: person.id
                             }).then(function () {
                                 abp.notify.success(app.localize('SuccessfullyDeleted'));
-                                getPeople();
+                                getPeoplePagination();
                             });
                         }
                     }
@@ -128,7 +172,7 @@
                     });
             };
 
-            getPeople();
+            getPeoplePagination();
         }
     ]);
 })();

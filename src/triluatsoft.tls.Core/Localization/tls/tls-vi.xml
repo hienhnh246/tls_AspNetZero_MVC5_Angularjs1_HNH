@@ -492,15 +492,18 @@
     <text name="PhoneBookHeaderInfo">Quản lý danh bạ điện thoại</text>
     <text name="AllPeople">Tất Cả Mọi Người</text>
     <text name="CreateNewPerson">Tạo người mới</text>
+    <text name="EditPerson">Chỉnh sửa người</text>
     <text name="DeletePerson">Xóa người</text>
     <text name="AreYouSureToDeletePerson">Bạn có chắc chắn để xóa người tên {0} không?</text>
+    <text name="AreYouSureToDeletePhone">Bạn có chắc chắn để xóa số điện thoại {0} không?</text>
     <text name="WarnPhoneInput">Vui lòng chọn loại và nhập số điện thoại!</text>
     <text name="Type">Loại</text>
     <text name="PhoneType_Mobile">Di động</text>
     <text name="PhoneType_Home">Nhà</text>
     <text name="PhoneType_Business">Doanh nghiệp</text>
-    <text name="EditPerson">Chỉnh sửa người</text>
-    <text name="TotalPhones">Tổng số điện thoại</text>
-    <text name="AreYouSureToDeletePhone">Bạn có chắc chắn để xóa số điện thoại {0} không?</text>
+    <text name="PleaseSelect">Vui lòng chọn</text>
+    <text name="TotalPhones">Tổng số điện thoại</text>    
+    <text name="School">Trường học</text>
+    <text name="Classrooms">Các lớp học</text>
   </texts>
 </localizationDictionary>

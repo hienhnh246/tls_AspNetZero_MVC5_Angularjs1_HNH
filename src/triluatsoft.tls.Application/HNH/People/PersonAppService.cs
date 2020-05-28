@@ -45,6 +45,30 @@ namespace triluatsoft.tls.HNH.People
             return new ListResultDto<PersonListDto>(ObjectMapper.Map<List<PersonListDto>>(persons));
         }
 
+        public async Task<PagedResultDto<PersonListDto>> GetPeoplePagination(GetPeopleFilterAndPaginationInput input)
+        {
+            var query = _personRepository.GetAll();
+
+            var resultCount = await query.CountAsync();
+
+            var persons = await query
+                .Include(p => p.Phones)
+                .WhereIf(
+                    !input.Filter.IsNullOrEmpty(),
+                    p => p.Name.Contains(input.Filter) ||
+                            p.Surname.Contains(input.Filter) ||
+                            p.EmailAddress.Contains(input.Filter)
+                )
+                .OrderBy(p => p.Name)
+                .ThenBy(p => p.Surname)
+                .PageBy(input)                
+                .ToListAsync();
+
+            var result = new PagedResultDto<PersonListDto>(resultCount, ObjectMapper.Map<List<PersonListDto>>(persons));
+
+            return result;
+        }
+
         public async Task<GetPersonForEditOutput> GetPersonForEdit(GetPersonForEditInput input)
         {
             var person = await _personRepository.GetAsync(input.Id);

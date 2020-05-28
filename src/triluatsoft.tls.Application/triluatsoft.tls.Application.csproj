@@ -210,6 +210,7 @@
     <Compile Include="HNH\People\Dto\CreatePersonInput.cs" />
     <Compile Include="HNH\People\Dto\EditPersonInput.cs" />
     <Compile Include="HNH\People\Dto\EditPhoneInput.cs" />
+    <Compile Include="HNH\People\Dto\GetPeopleFilterAndPaginationInput.cs" />
     <Compile Include="HNH\People\Dto\GetPeopleInput.cs" />
     <Compile Include="HNH\People\Dto\GetPersonForEditInput.cs" />
     <Compile Include="HNH\People\Dto\GetPersonForEditOutput.cs" />
