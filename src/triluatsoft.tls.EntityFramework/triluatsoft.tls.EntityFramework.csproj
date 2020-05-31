@@ -478,6 +478,10 @@
     <Compile Include="Migrations\202005281421229_HNH_Added_Classrooms_Table.Designer.cs">
       <DependentUpon>202005281421229_HNH_Added_Classrooms_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005311217310_HNH_Added_Students_Table.cs" />
+    <Compile Include="Migrations\202005311217310_HNH_Added_Students_Table.Designer.cs">
+      <DependentUpon>202005311217310_HNH_Added_Students_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleAndPhoneCreator.cs" />
     <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleCreator.cs" />
@@ -696,6 +700,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005281421229_HNH_Added_Classrooms_Table.resx">
       <DependentUpon>202005281421229_HNH_Added_Classrooms_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005311217310_HNH_Added_Students_Table.resx">
+      <DependentUpon>202005311217310_HNH_Added_Students_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
