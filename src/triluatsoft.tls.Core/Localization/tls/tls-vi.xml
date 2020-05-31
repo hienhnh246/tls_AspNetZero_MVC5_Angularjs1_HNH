@@ -158,7 +158,7 @@
     <text name="PersonalInformations" value="Personal information" />
     <text name="AccountSettings" value="Account settings" />
     <text name="Captha_Hint" value="Please enter the security code shown in the picture below:" />
-    <text name="Back" value="Back" />
+    <text name="Back" value="Trở lại" />
     <text name="Submit" value="Submit" />
     <text name="SignUp" value="Sign up" />
     <text name="CaptchaCanNotBeEmpty" value="Security code can not be empty." />
@@ -275,7 +275,7 @@
     <text name="Source" value="Source" />
     <text name="BaseLanguage" value="Base language" />
     <text name="TargetLanguage" value="Target language" />
-    <text name="Previous" value="Previous" />
+    <text name="Previous" value="Trước" />
     <text name="LanguageDeleteWarningMessage" value="Are you sure to delete the language {0}?" />
     <text name="CanNotEditOrDeleteDefaultLanguages" value="Can not edit or delete default languages. You can only edit or delete the languages you added. But you can change texts of all languages." />
     <text name="LookingForMpaVersion" value="Looking for Multi-Page Application Version?" />
@@ -491,6 +491,7 @@
     <text name="PhoneBook">Danh bạ điện thoại</text>
     <text name="PhoneBookHeaderInfo">Quản lý danh bạ điện thoại</text>
     <text name="AllPeople">Tất Cả Mọi Người</text>
+    <text name="NoPeopleInListYet">Chưa có người nào trong danh sách.</text>
     <text name="CreateNewPerson">Tạo người mới</text>
     <text name="EditPerson">Chỉnh sửa người</text>
     <text name="DeletePerson">Xóa người</text>
@@ -501,9 +502,28 @@
     <text name="PhoneType_Mobile">Di động</text>
     <text name="PhoneType_Home">Nhà</text>
     <text name="PhoneType_Business">Doanh nghiệp</text>
-    <text name="PleaseSelect">Vui lòng chọn</text>
-    <text name="TotalPhones">Tổng số điện thoại</text>    
+    <text name="PleaseSelect">---Vui lòng chọn---</text>
+    <text name="TotalPhones">Tổng số điện thoại</text>
+    <text name="Next">Sau</text>
     <text name="School">Trường học</text>
     <text name="Classrooms">Các lớp học</text>
+    <text name="ClassroomsHeaderInfo">Quản lý các lớp học</text>
+    <text name="ClassroomList">Danh sách lớp học</text>
+    <text name="ClassroomDetail">Chi tiết lớp học</text>
+    <text name="NoClassroomsInListYet">Chưa có lớp học nào trong danh sách.</text>
+    <text name="CreateNewClassroom">Tạo lớp học mới</text>
+    <text name="EditClassroom">Chỉnh sửa lớp học</text>
+    <text name="ClassroomNotificationDefinition">Cập nhật các lớp học trong ứng dụng.</text>
+    <text name="ClassroomName">Tên lớp học</text>
+    <text name="MaxStudentAmount">Số lượng học sinh tối đa</text>
+    <text name="StudentAmount">Số lượng học sinh</text>
+    <text name="ClassroomType">Loại lớp học</text>
+    <text name="ClassroomType_Basic">Cơ bản</text>
+    <text name="ClassroomType_Advance">Nâng cao</text>
+    <text name="NotValidNumber">Số không hợp lệ!</text>
+    <text name="Required">Hãy nhập!</text>
+    <text name="NoteMaxStudentAmountInput">Vui lòng nhập giá trị giữa 1 và 50.</text>
+    <text name="SelectAClassroomToSeeDetail">Chọn một lớp học để xem chi tiết lớp học đó.</text>
+    <text name="AreYouSureToDeleteClassroom">Bạn có chắc chắn để xóa lớp học tên {0} không?</text>
   </texts>
 </localizationDictionary>

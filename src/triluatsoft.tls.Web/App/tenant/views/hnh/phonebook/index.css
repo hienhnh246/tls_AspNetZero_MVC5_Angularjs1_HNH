@@ -1,3 +1,6 @@
 ﻿#AllPeopleList .list-group-item-heading .person-buttons {
   float: right;
 }
+.button-visibility {
+  visibility: hidden;
+}

@@ -474,6 +474,10 @@
     <Compile Include="Migrations\202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.Designer.cs">
       <DependentUpon>202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005281421229_HNH_Added_Classrooms_Table.cs" />
+    <Compile Include="Migrations\202005281421229_HNH_Added_Classrooms_Table.Designer.cs">
+      <DependentUpon>202005281421229_HNH_Added_Classrooms_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleAndPhoneCreator.cs" />
     <Compile Include="Migrations\Seed\Tenants\HNH\InitialPeopleCreator.cs" />
@@ -689,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.resx">
       <DependentUpon>202005270719231_HNH_Implemented_IMustHaveTenant_For_Persons_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005281421229_HNH_Added_Classrooms_Table.resx">
+      <DependentUpon>202005281421229_HNH_Added_Classrooms_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,7 @@ namespace triluatsoft.tls.Migrations.Seed.Tenants.HNH
                 _context.Persons.Add(
                     new Person
                     {
+                        TenantId = 1,
                         Name = "Douglas2",
                         Surname = "Adams",
                         EmailAddress = "douglas.adams@fortytwo.net",
@@ -40,6 +41,7 @@ namespace triluatsoft.tls.Migrations.Seed.Tenants.HNH
                 _context.Persons.Add(
                     new Person
                     {
+                        TenantId = 1,
                         Name = "Isaac2",
                         Surname = "Asimov",
                         EmailAddress = "isaac.asimov@foundation.com",

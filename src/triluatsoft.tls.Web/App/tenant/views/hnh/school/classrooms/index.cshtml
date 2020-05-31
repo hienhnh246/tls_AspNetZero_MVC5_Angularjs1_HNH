@@ -1,0 +1,117 @@
+﻿@using triluatsoft.tls.Localization
+
+<div ng-controller="tenant.views.hnh.school.classrooms.index as vm">
+    <div class="row margin-bottom-5">
+        <div class="col-xs-12">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>@L("Classrooms")</span> <small>@L("ClassroomsHeaderInfo")</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject bold uppercase">
+                            @L("ClassroomList") ({{vm.totalClassrooms}})
+                        </span>
+                    </div>
+                    <div class="actions">
+                        <a ng-click="vm.openCreateClassroomModal()" class="btn btn-circle btn-default">
+                            <i class="fa fa-plus"></i> @L("CreateNewClassroom")
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div ng-if="!vm.totalClassrooms" busy-if="vm.classroomLoading" class="text-muted">
+                        @L("NoClassroomsInListYet")
+                    </div>
+
+                    <div ng-if="vm.totalClassrooms" busy-if="vm.classroomLoading" class="form">
+                        <form class="horizontal-form">
+                            <div class="form-body" enter-key="vm.getClassroomsPagination()">
+                                <div class="row margin-bottom-10">
+                                    <div class="col-md-12">
+                                        <div class="inputs inputs-full-width">
+                                            <div class="portlet-input">
+                                                <div class="input-group">
+                                                    <input ng-model="vm.filterClassroomText" auto-focus class="form-control" placeholder="@L("SearchWithThreeDot")" type="text">
+                                                    <span class="input-group-btn">
+                                                        <button ng-click="vm.getClassroomsPagination()" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:50%">@L("ClassroomName")</th>
+                                                <th style="width:40%">@L("MaxStudentAmount")</th>
+                                                <th style="width:10%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="cursor: pointer" ng-repeat="classroom in vm.classrooms" @*ng-init="classroomId = classroom.id" ng-click="vm.rowClassroomHighilited(classroom)" ng-class="classroomId==vm.classroomSelected.id?'selected':''"*@>
+                                                <td>{{classroom.name}}</td>
+                                                <td>{{classroom.maxStudentAmount}}</td>
+                                                <td>
+                                                    @*<div class="row">
+                                                            <button ng-click="vm.openEditClassroomModal(classroom)" title="@L("Edit")" class="btn btn-sm btn-default">
+                                                                <i class="icon-pencil"></i>
+                                                            </button>
+                                                        </div>*@
+                                                    <div class="row" style="margin-right:1px">
+                                                        <button ng-click="vm.deleteClassroom(classroom)" title="@L("Delete")" class="btn btn-sm btn-default">
+                                                            <i class="icon-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-center">
+                                    <ul uib-pagination total-items="vm.totalUibPaginationClassrooms" ng-model="vm.currentClassroomPage" ng-change="vm.classroomPageChanged()" max-size="vm.pagedParams.maxSize" class="pagination-sm" boundary-link-numbers="true"></ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject bold uppercase">
+                            @L("ClassroomDetail")
+                            <span ng-if="vm.organizationTree.selectedOu.displayName">: {{vm.organizationTree.selectedOu.displayName}}</span>
+                        </span>
+                    </div>
+                    <div class="actions">
+                        <a ng-click="vm.members.openAddModal()" class="btn btn-circle btn-default">
+                            <i class="fa fa-pencil"></i> @L("EditClassroom")
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div ng-if="vm.organizationTree.selectedOu.id" ui-grid="vm.members.gridOptions" ui-grid-pagination ui-grid-resize-columns dir=@(CultureHelper.IsRtl ? "rtl" : "")></div>
+                    <div ng-if="!vm.organizationTree.selectedOu.id" class="text-muted">
+                        @L("SelectAClassroomToSeeDetail")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

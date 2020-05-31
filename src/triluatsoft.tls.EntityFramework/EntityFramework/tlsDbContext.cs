@@ -5,6 +5,7 @@ using triluatsoft.tls.Authorization.Roles;
 using triluatsoft.tls.Authorization.Users;
 using triluatsoft.tls.Chat;
 using triluatsoft.tls.Friendships;
+using triluatsoft.tls.HNH.Classrooms;
 using triluatsoft.tls.HNH.People;
 using triluatsoft.tls.HNH.Phones;
 using triluatsoft.tls.MultiTenancy;
@@ -33,6 +34,8 @@ namespace triluatsoft.tls.EntityFramework
         public virtual IDbSet<Person> Persons { get; set; }
 
         public virtual IDbSet<Phone> Phones { get; set; }
+
+        public virtual IDbSet<Classroom> Classrooms { get; set; }
 
         public tlsDbContext()
             : base("Default")

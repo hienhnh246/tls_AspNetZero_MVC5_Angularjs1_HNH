@@ -184,6 +184,17 @@ appModule.config([
             });
         }
 
+        $stateProvider.state('tenant.school', {
+            'abstract': true,
+            url: '/school',
+            template: '<div ui-view class="fade-in-up"></div>'
+        });
+
+        $stateProvider.state('tenant.school.classrooms', {
+            url: '/classrooms',
+            templateUrl: '~/App/tenant/views/hnh/school/classrooms/index.cshtml'
+        });
+
         //$qProvider settings
         $qProvider.errorOnUnhandledRejections(false);
     }

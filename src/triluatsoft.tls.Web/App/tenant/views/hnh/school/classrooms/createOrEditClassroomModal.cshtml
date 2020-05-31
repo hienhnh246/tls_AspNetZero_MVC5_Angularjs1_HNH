@@ -1,0 +1,39 @@
+﻿@using triluatsoft.tls.HNH.Classrooms
+
+<div>
+    <form name="createOrEditClassroomForm" role="form" novalidate class="form-validation" enter-key="vm.save(vm.classroom)">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.classroom.id">@L("Edit"): {{vm.classroom.name}}</span>
+                <span ng-if="!vm.classroom.id">@L("CreateNewClassroom")</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="Name" class="form-control" ng-class="{'edited':vm.classroom.name}" ng-model="vm.classroom.name" required maxlength="@Classroom.MaxNameLength">
+                <label>@L("Name")*</label>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint md-input-container">
+                <input type="number" name="MaxStudentAmount" class="form-control" ng-class="{'edited':vm.classroom.maxStudentAmount}" ng-model="vm.classroom.maxStudentAmount" required min="1" max="50">
+                <label>@L("MaxStudentAmount")*</label>
+                <span style="color:red" ng-show="createOrEditClassroomForm.MaxStudentAmount.$error.number">@L("NotValidNumber")</span>
+                <span style="color:red" ng-show="!createOrEditClassroomForm.MaxStudentAmount.$valid">@L("NoteMaxStudentAmountInput")</span>
+            </div>
+
+            <div class="form-group form-md-line-input no-hint">
+                <select name="Type" class="form-control"
+                        ng-options="option.name for option in vm.typeOptions track by option.id"
+                        ng-model="vm.classroom.classroomTypeSelected">
+                </select>
+                <label style="color:#888; font-size:13px">@L("ClassroomType")</label>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="createOrEditClassroomForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

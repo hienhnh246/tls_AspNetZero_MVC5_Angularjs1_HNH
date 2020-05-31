@@ -45,6 +45,17 @@ namespace triluatsoft.tls.Web.App.Startup
                     requiredPermissionName: AppPermissions.Pages_Tenant_PhoneBook
                     )
                 ).AddItem(new MenuItemDefinition(
+                    PageNames.App.Tenant.School,
+                    L("School"),
+                    icon: "glyphicon glyphicon-grain"
+                    ).AddItem(new MenuItemDefinition(
+                        PageNames.App.Tenant.Classrooms,
+                        L("Classrooms"),
+                        url: "tenant.school.classrooms",
+                        icon: "glyphicon glyphicon-blackboard"
+                        )
+                    )
+                ).AddItem(new MenuItemDefinition(
                     PageNames.App.Common.Administration,
                     L("Administration"),
                     icon: "icon-wrench"

@@ -207,6 +207,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HNH\Classrooms\ClassroomAppService.cs" />
+    <Compile Include="HNH\Classrooms\Dto\ClassroomDto.cs" />
+    <Compile Include="HNH\Classrooms\Dto\ClassroomListDto.cs" />
+    <Compile Include="HNH\Classrooms\Dto\InsertOrUpdateClassroomInput.cs" />
+    <Compile Include="HNH\Classrooms\Dto\PagedAndFilteredClassroomInputDto.cs" />
+    <Compile Include="HNH\Classrooms\IClassroomAppService.cs" />
     <Compile Include="HNH\People\Dto\CreatePersonInput.cs" />
     <Compile Include="HNH\People\Dto\EditPersonInput.cs" />
     <Compile Include="HNH\People\Dto\EditPhoneInput.cs" />

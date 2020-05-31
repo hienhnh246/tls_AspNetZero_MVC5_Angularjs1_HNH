@@ -24,6 +24,13 @@ namespace triluatsoft.tls.Notifications
                     permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Tenants)
                     )
                 );
+
+            context.Manager.Add(
+                new NotificationDefinition(
+                    AppNotificationNames.ClassroomNotification,
+                    displayName: L("ClassroomNotificationDefinition")
+                    )
+                );
         }
 
         private static ILocalizableString L(string name)

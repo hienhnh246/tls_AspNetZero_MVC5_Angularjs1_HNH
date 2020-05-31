@@ -28,6 +28,8 @@ namespace triluatsoft.tls.Web.Navigation
                 public const string Settings = "Administration.Settings.Tenant";
 
                 public const string PhoneBook = "PhoneBook.Tenant";
+                public const string School = "School.Tenant";
+                public const string Classrooms = "School.Classrooms.Tenant";
             }
         }
 

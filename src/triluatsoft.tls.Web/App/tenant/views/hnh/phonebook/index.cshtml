@@ -43,6 +43,24 @@
                 </form>
             </div>
 
+            <div ng-if="vm.personPage.totalPerson==0" class="text-muted">
+                @L("NoPeopleInListYet")
+            </div>
+
+            @*<div id="AllPeopleList" class="list-group">
+                <a href="javascript:;" class="list-group-item" ng-repeat="person in vm.persons">
+                    <h4 class="list-group-item-heading">
+                        {{person.name}} {{person.surname}}
+                        <button ng-if="vm.permissions.deletePerson" ng-click="vm.deletePerson(person)" title="@L("Delete")" class="btn btn-circle btn-icon-only red delete-person" href="javascript:;">
+                            <i class="icon-trash"></i>
+                        </button>
+                    </h4>
+                    <p class="list-group-item-text">
+                        {{person.emailAddress}}
+                    </p>
+                </a>
+            </div>*@
+
             <div busy-if="vm.loading" id="AllPeopleList" class="list-group">
                 <div class="list-group-item" ng-repeat="person in vm.persons" ng-class="{'phone-editing':person==vm.editingPhone}">
                     <h4 class="list-group-item-heading">
@@ -82,8 +100,8 @@
                                 <tr ng-repeat="phone in person.phones">
                                     <td style="text-align:center">
                                         @*<button ng-click="vm.deletePhone(phone, person)" class="btn btn-sm btn-default">
-                                                <i class="icon-trash"></i>
-                                            </button>*@
+                                        <i class="icon-trash"></i>
+                                    </button>*@
                                         {{$index+1}}
                                     </td>
                                     <td>{{vm.getPhoneTypeAsString(phone.type)}}</td>
@@ -97,7 +115,7 @@
                                     </td>
                                     <td>
                                         <select name="Type" class="form-control" ng-model="person.newPhone.type">
-                                            <option value="">---@L("PleaseSelect")---</option>
+                                            <option value="">@L("PleaseSelect")</option>
                                             <option value="0">@L("PhoneType_Mobile")</option>
                                             <option value="1">@L("PhoneType_Home")</option>
                                             <option value="2">@L("PhoneType_Business")</option>
@@ -110,11 +128,11 @@
                     </div>
                 </div>
 
-                <div class="row margin-top-10" style="text-align:center">
+                <div ng-if="vm.personPage.totalPerson>vm.personPage.maxResultCount" class="row margin-top-10" style="text-align:center">
                     <span>
-                        <button ng-click="vm.backPersonPage()" class="btn btn-default" type="button">Back</button>
+                        <button ng-class="vm.personPage.personPageNum == 1 ? 'button-visibility':''" ng-click="vm.backPersonPage()" class="btn btn-default" type="button"><< @L("Previous")</button>
                         <span style="margin-left:20px; margin-right:20px">{{vm.personPage.personPageNum}} / {{vm.personPage.totalPersonPage}}</span>
-                        <button ng-click="vm.nextPersonPage()" class="btn btn-default" type="button">Next</button>
+                        <button ng-class="vm.personPage.personPageNum == vm.personPage.totalPersonPage? 'button-visibility':''" ng-click="vm.nextPersonPage()" class="btn btn-default" type="button">@L("Next") >></button>
                     </span>
                 </div>
 
