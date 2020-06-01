@@ -210,6 +210,9 @@
     <Compile Include="HNH\People\Person.cs" />
     <Compile Include="HNH\Phones\Phone.cs" />
     <Compile Include="HNH\Phones\PhoneType.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\IStudentAndClassroomManager.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\StudentAndClassroom.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\StudentAndClassroomManager.cs" />
     <Compile Include="HNH\Students\IStudentManager.cs" />
     <Compile Include="HNH\Students\Student.cs" />
     <Compile Include="HNH\Students\StudentManager.cs" />

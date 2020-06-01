@@ -29,10 +29,6 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div ng-if="!vm.totalClassrooms" busy-if="vm.classroomLoading" class="text-muted">
-                        @L("NoClassroomsInListYet")
-                    </div>
-
                     <div ng-if="vm.totalClassrooms" busy-if="vm.classroomLoading" class="form">
                         <form class="horizontal-form">
                             <div class="form-body" enter-key="vm.getClassroomsPagination()">
@@ -56,14 +52,14 @@
                                         <thead>
                                             <tr>
                                                 <th style="width:50%">@L("ClassroomName")</th>
-                                                <th style="width:40%">@L("MaxStudentAmount")</th>
+                                                <th style="width:40%">@L("StudentAmount")</th>
                                                 <th style="width:10%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr style="cursor: pointer" ng-repeat="classroom in vm.classrooms" @*ng-init="classroomId = classroom.id" ng-click="vm.rowClassroomHighilited(classroom)" ng-class="classroomId==vm.classroomSelected.id?'selected':''"*@>
+                                            <tr style="cursor: pointer" ng-repeat="classroom in vm.classrooms" ng-init="classroomId = classroom.id" ng-click="vm.rowClassroomHighlighted(classroom)" ng-class="classroomId==vm.classroomSelected.id?'selected':''">
                                                 <td>{{classroom.name}}</td>
-                                                <td>{{classroom.maxStudentAmount}}</td>
+                                                <td>{{classroom.studentsAndClassrooms.length}} / {{classroom.maxStudentAmount}}</td>
                                                 <td>
                                                     @*<div class="row">
                                                             <button ng-click="vm.openEditClassroomModal(classroom)" title="@L("Edit")" class="btn btn-sm btn-default">
@@ -86,6 +82,9 @@
                             </div>
                         </form>
                     </div>
+                    <div ng-if="!vm.totalClassrooms" busy-if="vm.classroomLoading" class="text-muted">
+                        @L("NoClassroomsInListYet")
+                    </div>
                 </div>
             </div>
         </div>
@@ -94,19 +93,60 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <span class="caption-subject bold uppercase">
-                            @L("ClassroomDetail")
-                            <span ng-if="vm.organizationTree.selectedOu.displayName">: {{vm.organizationTree.selectedOu.displayName}}</span>
+                            <span ng-if="!vm.classroomSelected.name">@L("ClassroomDetail")</span>
+                            <span ng-if="vm.classroomSelected.name">@L("Detail"): {{vm.classroomSelected.name}}</span>
                         </span>
                     </div>
                     <div class="actions">
-                        <a ng-click="vm.members.openAddModal()" class="btn btn-circle btn-default">
-                            <i class="fa fa-pencil"></i> @L("EditClassroom")
+                        <a ng-if="vm.classroomSelected.name" ng-click="vm.openEditClassroomDetailModal(vm.classroomSelected)" class="btn btn-circle btn-default">
+                            <i class="fa fa-pencil"></i> @L("Edit")
                         </a>
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div ng-if="vm.organizationTree.selectedOu.id" ui-grid="vm.members.gridOptions" ui-grid-pagination ui-grid-resize-columns dir=@(CultureHelper.IsRtl ? "rtl" : "")></div>
-                    <div ng-if="!vm.organizationTree.selectedOu.id" class="text-muted">
+                    <div ng-if="vm.classroomSelected">
+                        <div style="margin-left:10px">
+                            <table>
+                                <tr>
+                                    <td><p>- @L("ClassroomName")</p></td>
+                                    <td><p>: {{vm.classroomSelected.name}}</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>- @L("MaxStudentAmount")</p></td>
+                                    <td><p>: {{vm.classroomSelected.maxStudentAmount}}</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>- @L("ClassroomType")</p></td>
+                                    <td><p>: {{vm.getClassroomTypeAsString(vm.classroomSelected.classroomType)}}</p></td>
+                                </tr>
+                            </table>
+                            @*<p style="margin-left:20px">- Class president: {{vm.classPresidentOfClassroom.surname}} {{vm.classPresidentOfClassroom.name}}</p>*@
+                        </div>
+                        <p><b>@L("StudentListOfClassroom") ({{vm.studentsInClassroom.length}})</b></p>
+                        <div style="" busy-if="vm.studentLoading" class="table">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width:40%">@L("Fullname")</th>
+                                        <th style="width:25%">@L("Gender")</th>
+                                        <th style="width:25%">@L("Birth")</th>
+                                        <th style="width:10%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="student in vm.studentsInClassroom">
+                                        <td>{{student.surname}} {{student.name}}</td>
+                                        <td>{{vm.getGenderAsString(student.gender)}}</td>
+                                        <td>{{student.birth | date: 'dd/MM/yyyy'}}</td>
+                                        <td>
+                                            <a ng-click="vm.changeClassPresident(student)">Assign</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div ng-if="!vm.classroomSelected.name" class="text-muted">
                         @L("SelectAClassroomToSeeDetail")
                     </div>
                 </div>

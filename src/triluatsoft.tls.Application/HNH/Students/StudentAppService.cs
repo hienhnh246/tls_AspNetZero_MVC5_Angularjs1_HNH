@@ -23,6 +23,16 @@ namespace triluatsoft.tls.HNH.Students
             return result;
         }
 
+        public async Task<ListResultDto<StudentListDto>> GetStudentsPagination(PagedAndFilteredStudentInput input)
+        {
+            var totalCount = await _studentManager.CountTotalAllStudentAsync();
+            var students = await _studentManager.GetStudentListWithFilterAndPaginationAsync(input.Filter, input.SkipCount, input.MaxResultCount);
+
+            var result = new PagedResultDto<StudentListDto>(totalCount, ObjectMapper.Map<List<StudentListDto>>(students));
+
+            return result;
+        }
+
         public async Task<StudentDto> GetStudent(EntityDto input)
         {
             var student = await _studentManager.GetStudentAsync(input.Id);
@@ -49,6 +59,15 @@ namespace triluatsoft.tls.HNH.Students
         public async Task DeleteStudent(EntityDto input)
         {
             await _studentManager.DeleteStudentAsync(input.Id);
+        }
+
+        public async Task<ListResultDto<StudentListDto>> GetStudentsInClassroom(int classroomIdInput)
+        {
+            var students = await _studentManager.GetStudentsInClassroom(classroomIdInput);
+
+            var result = new ListResultDto<StudentListDto>(ObjectMapper.Map<List<StudentListDto>>(students));
+
+            return result;
         }
     }
 }

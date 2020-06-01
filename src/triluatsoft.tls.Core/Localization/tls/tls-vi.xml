@@ -289,7 +289,7 @@
     <text name="OrganizationUnitDeleteWarningMessage" value="Are you sure to delete organization unit {0}?" />
     <text name="AddSubUnit" value="Add sub unit" />
     <text name="AddMember" value="Add member" />
-    <text name="SuccessfullyAdded" value="Successfully added" />
+    <text name="SuccessfullyAdded" value="Đã thêm thành công" />
     <text name="RemoveUserFromOuWarningMessage" value="Are you sure to remove user {0} from organization unit {1}?" />
     <text name="SuccessfullyRemoved" value="Successfully removed" />
     <text name="SelectAnItem" value="Select an item" />
@@ -525,5 +525,20 @@
     <text name="NoteMaxStudentAmountInput">Vui lòng nhập giá trị giữa 1 và 50.</text>
     <text name="SelectAClassroomToSeeDetail">Chọn một lớp học để xem chi tiết lớp học đó.</text>
     <text name="AreYouSureToDeleteClassroom">Bạn có chắc chắn để xóa lớp học tên {0} không?</text>
+    <text name="Detail">Chi tiết</text>
+    <text name="NoSelectedYet">Chưa chọn</text>
+    <text name="Birth">Ngày sinh</text>
+    <text name="StudentListOfClassroom">Danh sách học sinh của lớp học</text>
+    <text name="Fullname">Họ tên</text>
+    <text name="ClassroomInformations">Các thông tin lớp học</text>
+    <text name="AddStudentForClassroom">Thêm học sinh cho lớp học</text>
+    <text name="Gender">Giới tính</text>
+    <text name="AreYouSureToAddStudentToClassroom">Bạn có chắc chắn để thêm học sinh "{0}" vào lớp học "{1}" không?</text>
+    <text name="AreYouSureToRemoveStudentFromClassroom">Bạn có chắc chắn để loại bỏ học sinh "{0}" khỏi lớp học "{1}" không?</text>
+    <text name="Add">Thêm</text>
+    <text name="Attended">Đã tham gia</text>
+    <text name="WarnEnoughStudentAmountOfClassroom">Đã đủ số lượng học sinh của lớp học!</text>
+    <text name="Male">Nam</text>
+    <text name="Female">Nữ</text>
   </texts>
 </localizationDictionary>

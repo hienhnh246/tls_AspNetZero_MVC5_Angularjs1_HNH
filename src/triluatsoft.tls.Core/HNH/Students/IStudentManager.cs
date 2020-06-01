@@ -8,6 +8,10 @@ namespace triluatsoft.tls.HNH.Students
     {
         Task<List<Student>> GetAllStudentListAsync();
 
+        Task<int> CountTotalAllStudentAsync();
+
+        Task<List<Student>> GetStudentListWithFilterAndPaginationAsync(string filter, int skipCount, int maxResultCount);
+
         Task<Student> GetStudentAsync(int id);
 
         Task InsertStudentAsync(Student student);
@@ -15,5 +19,7 @@ namespace triluatsoft.tls.HNH.Students
         Task UpdateStudentAsync(Student student);
 
         Task DeleteStudentAsync(int id);
+
+        Task<List<Student>> GetStudentsInClassroom(int classroomId);
     }
 }

@@ -9,7 +9,7 @@ namespace triluatsoft.tls.HNH.Classrooms
     {
         Task<ListResultDto<ClassroomListDto>> GetAllClassroom();
 
-        Task<PagedResultDto<ClassroomListDto>> GetClassroomsPagination(PagedAndFilteredClassroomInputDto input);
+        Task<PagedResultDto<ClassroomListDto>> GetClassroomsPagination(PagedAndFilteredClassroomInput input);
 
         Task<ClassroomDto> GetClassroom(EntityDto input);
 

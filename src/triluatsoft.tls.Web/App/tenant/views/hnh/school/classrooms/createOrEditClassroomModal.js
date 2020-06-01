@@ -14,7 +14,7 @@
             ];
 
             function init() {
-                if (classroomId != null) {
+                if (classroomId) {
                     classroomService.getClassroom({
                         id: classroomId
                     }).then(function (result) {

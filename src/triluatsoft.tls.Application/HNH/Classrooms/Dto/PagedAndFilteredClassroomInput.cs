@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace triluatsoft.tls.HNH.Classrooms.Dto
 {
-    public class PagedAndFilteredClassroomInputDto : IPagedResultRequest
+    public class PagedAndFilteredClassroomInput : IPagedResultRequest
     {
         [Range(1, AppConsts.MaxPageSize)]
         public int MaxResultCount { get; set; }
@@ -13,7 +13,7 @@ namespace triluatsoft.tls.HNH.Classrooms.Dto
 
         public string Filter { get; set; }
 
-        public PagedAndFilteredClassroomInputDto()
+        public PagedAndFilteredClassroomInput()
         {
             MaxResultCount = AppConsts.DefaultPageSize;
         }

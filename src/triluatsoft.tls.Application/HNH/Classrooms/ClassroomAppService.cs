@@ -23,7 +23,7 @@ namespace triluatsoft.tls.HNH.Classrooms
             return result;
         }
 
-        public async Task<PagedResultDto<ClassroomListDto>> GetClassroomsPagination(PagedAndFilteredClassroomInputDto input)
+        public async Task<PagedResultDto<ClassroomListDto>> GetClassroomsPagination(PagedAndFilteredClassroomInput input)
         {
             var totalCount = await _classroomManager.CountTotalAllClassroomAsync();
             var classrooms = await _classroomManager.GetClassroomListWithFilterAndPaginationAsync(input.Filter, input.SkipCount, input.MaxResultCount);

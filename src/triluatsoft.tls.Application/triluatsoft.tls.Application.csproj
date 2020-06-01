@@ -211,7 +211,7 @@
     <Compile Include="HNH\Classrooms\Dto\ClassroomDto.cs" />
     <Compile Include="HNH\Classrooms\Dto\ClassroomListDto.cs" />
     <Compile Include="HNH\Classrooms\Dto\InsertOrUpdateClassroomInput.cs" />
-    <Compile Include="HNH\Classrooms\Dto\PagedAndFilteredClassroomInputDto.cs" />
+    <Compile Include="HNH\Classrooms\Dto\PagedAndFilteredClassroomInput.cs" />
     <Compile Include="HNH\Classrooms\IClassroomAppService.cs" />
     <Compile Include="HNH\People\Dto\CreatePersonInput.cs" />
     <Compile Include="HNH\People\Dto\EditPersonInput.cs" />
@@ -228,7 +228,12 @@
     <Compile Include="HNH\People\Dto\PhoneInPersonListDto.cs" />
     <Compile Include="HNH\People\IPersonAppService.cs" />
     <Compile Include="HNH\People\Dto\AddPhoneInput.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\Dto\InsertStudentAndClassroomInput.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\Dto\StudentAndClassroomListDto.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\IStudentAndClassroomAppService.cs" />
+    <Compile Include="HNH\StudentsAndClassrooms\StudentAndClassroomAppService.cs" />
     <Compile Include="HNH\Students\Dto\InsertOrUpdateStudentInput.cs" />
+    <Compile Include="HNH\Students\Dto\PagedAndFilteredStudentInput.cs" />
     <Compile Include="HNH\Students\Dto\StudentDto.cs" />
     <Compile Include="HNH\Students\Dto\StudentListDto.cs" />
     <Compile Include="HNH\Students\IStudentAppService.cs" />

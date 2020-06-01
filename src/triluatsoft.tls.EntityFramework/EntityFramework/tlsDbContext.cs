@@ -9,6 +9,7 @@ using triluatsoft.tls.HNH.Classrooms;
 using triluatsoft.tls.HNH.People;
 using triluatsoft.tls.HNH.Phones;
 using triluatsoft.tls.HNH.Students;
+using triluatsoft.tls.HNH.StudentsAndClassrooms;
 using triluatsoft.tls.MultiTenancy;
 using triluatsoft.tls.Storage;
 
@@ -39,6 +40,8 @@ namespace triluatsoft.tls.EntityFramework
         public virtual IDbSet<Classroom> Classrooms { get; set; }
 
         public virtual IDbSet<Student> Student { get; set; }
+
+        public virtual IDbSet<StudentAndClassroom> StudentsOfClassrooms { get; set; }
 
         public tlsDbContext()
             : base("Default")

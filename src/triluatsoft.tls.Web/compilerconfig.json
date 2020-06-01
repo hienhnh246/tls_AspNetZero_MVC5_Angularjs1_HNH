@@ -54,5 +54,9 @@
   {
     "outputFile": "App/tenant/views/hnh/phonebook/index.css",
     "inputFile": "App/tenant/views/hnh/phonebook/index.less"
+  },
+  {
+    "outputFile": "App/tenant/views/hnh/school/classrooms/index.css",
+    "inputFile": "App/tenant/views/hnh/school/classrooms/index.less"
   }
 ]

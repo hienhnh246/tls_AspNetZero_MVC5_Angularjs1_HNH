@@ -1,7 +1,9 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using System;
+using System.Collections.ObjectModel;
 using triluatsoft.tls.HNH.People;
+using triluatsoft.tls.HNH.StudentsAndClassrooms.Dto;
 
 namespace triluatsoft.tls.HNH.Students.Dto
 {
@@ -19,5 +21,7 @@ namespace triluatsoft.tls.HNH.Students.Dto
         public string PhoneNumber { get; set; }
 
         public string EmailAddress { get; set; }
+
+        public Collection<StudentAndClassroomListDto> StudentsAndClassrooms { get; set; }
     }
 }

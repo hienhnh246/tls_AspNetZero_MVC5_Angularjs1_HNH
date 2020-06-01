@@ -1,8 +1,10 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using triluatsoft.tls.HNH.People;
+using triluatsoft.tls.HNH.StudentsAndClassrooms;
 
 namespace triluatsoft.tls.HNH.Students
 {
@@ -32,5 +34,7 @@ namespace triluatsoft.tls.HNH.Students
 
         [StringLength(MaxEmailAddressLength)]
         public virtual string EmailAddress { get; set; }
+
+        public virtual ICollection<StudentAndClassroom> StudentsAndClassrooms { get; set; }
     }
 }

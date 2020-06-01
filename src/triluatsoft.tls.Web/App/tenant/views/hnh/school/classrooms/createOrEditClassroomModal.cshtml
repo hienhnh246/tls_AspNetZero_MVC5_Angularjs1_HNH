@@ -18,9 +18,9 @@
             <div class="form-group form-md-line-input form-md-floating-label no-hint md-input-container">
                 <input type="number" name="MaxStudentAmount" class="form-control" ng-class="{'edited':vm.classroom.maxStudentAmount}" ng-model="vm.classroom.maxStudentAmount" required min="1" max="50">
                 <label>@L("MaxStudentAmount")*</label>
-                <span style="color:red" ng-show="createOrEditClassroomForm.MaxStudentAmount.$error.number">@L("NotValidNumber")</span>
-                <span style="color:red" ng-show="!createOrEditClassroomForm.MaxStudentAmount.$valid">@L("NoteMaxStudentAmountInput")</span>
             </div>
+            <span style="color:red" ng-show="createOrEditClassroomForm.MaxStudentAmount.$error.number">@L("NotValidNumber")</span>
+            <span style="color:red" ng-show="!createOrEditClassroomForm.MaxStudentAmount.$valid">@L("NoteMaxStudentAmountInput")</span>
 
             <div class="form-group form-md-line-input no-hint">
                 <select name="Type" class="form-control"

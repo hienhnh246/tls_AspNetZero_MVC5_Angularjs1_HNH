@@ -1,7 +1,7 @@
 ﻿(function () {
     appModule.controller('tenant.views.hnh.school.classrooms.index', [
-        '$scope', '$uibModal', 'abp.services.app.classroom',
-        function ($scope, $uibModal, classroomService) {
+        '$scope', '$uibModal', 'abp.services.app.classroom', 'abp.services.app.student',
+        function ($scope, $uibModal, classroomService, studentService) {
             var vm = this;
 
             $scope.$on('$viewContentLoaded', function () {
@@ -11,20 +11,17 @@
             vm.classroomLoading = false;
             vm.studentLoading = false;
             vm.classrooms = [];
-            vm.studentsOfClassroom = [];
+            vm.studentsInClassroom = [];
             vm.totalClassrooms = null;
             vm.totalUibPaginationClassrooms = null;
-            vm.totalStudentsOfClassroom = null;
-            vm.totalUibPaginationStudentsOfClassroom = null;
             vm.filterClassroomText = null;
-            vm.filterStudentTextOfClassroom = null;
             vm.pagedParams = {
                 maxResultCount: 5,
                 maxSize: 5,
                 maxResultCountOfUibPagination: 10
             };
             vm.currentClassroomPage = 1;
-            vm.currentStudentOfClassroomPage = 1;
+            vm.classroomSelected = null;
 
             function getClassrooms() {
                 vm.classroomLoading = true;
@@ -92,10 +89,78 @@
                             }).then(function () {
                                 abp.notify.success(app.localize('SuccessfullyDeleted'));
                                 vm.getClassroomsPagination();
+                            }).finally(function () {
+                                if (vm.classroomSelected.id == classroom.id) {
+                                    vm.classroomSelected = null;
+                                }
                             });
                         }
                     }
                 );
+            };
+
+            vm.rowClassroomHighlighted = function (classroom) {
+                vm.classroomSelected = classroom;
+                vm.getStudentsInClassroom(classroom);
+                //getClassPresidentOfClassroom();
+            };
+
+            vm.getClassroomTypeAsString = function (typeAsNumber) {
+                switch (typeAsNumber) {
+                    case 1:
+                        return app.localize('ClassroomType_Basic');
+                    case 2:
+                        return app.localize('ClassroomType_Advance');
+                    default:
+                        return app.localize('NoSelectedYet');
+                }
+            };
+
+            vm.getStudentsInClassroom = function (classroom) {
+                vm.studentLoading = true;
+
+                studentService.getStudentsInClassroom(classroom.id)
+                    .then(function (result) {
+                        vm.studentsInClassroom = result.data.items;
+                    }).finally(function () {
+                        vm.studentLoading = false;
+                    });
+            };
+
+            vm.getGenderAsString = function (genderAsNumber) {
+                switch (genderAsNumber) {
+                    case 1:
+                        return app.localize('Male');
+                    case 2:
+                        return app.localize('Female');
+                    default:
+                        return '?';
+                }
+            };
+
+            vm.openEditClassroomDetailModal = function (classroom) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: '~/App/tenant/views/hnh/school/classrooms/editClassroomDetailModal.cshtml',
+                    controller: 'tenant.views.hnh.school.classrooms.editClassroomDetailModal as vm',
+                    backdrop: 'static',
+                    resolve: {
+                        classroomId: classroom.id
+                    }
+                });
+
+                modalInstance.result.then(function () {
+                    vm.getClassroomsPagination();
+                    vm.getClassroomSelected(vm.classroomSelected.id);
+                    vm.getStudentsInClassroom(vm.classroomSelected);
+                });
+            }
+
+            vm.getClassroomSelected = function (classroomId) {
+                classroomService.getClassroom({
+                    id: classroomId
+                }).then(function (result) {
+                    vm.classroomSelected = result.data;
+                });
             };
 
             vm.getClassroomsPagination();

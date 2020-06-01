@@ -1,5 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using System.Collections.ObjectModel;
+using triluatsoft.tls.HNH.StudentsAndClassrooms.Dto;
 
 namespace triluatsoft.tls.HNH.Classrooms.Dto
 {
@@ -13,5 +15,7 @@ namespace triluatsoft.tls.HNH.Classrooms.Dto
         public ClassroomType ClassroomType { get; set; }
 
         public string Description { get; set; }
+
+        public virtual Collection<StudentAndClassroomListDto> StudentsAndClassrooms { get; set; }
     }
 }

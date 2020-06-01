@@ -1,0 +1,104 @@
+﻿@using triluatsoft.tls.HNH.Classrooms
+
+<div>
+    <form name="editClassroomDetailForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.classroom.id">@L("Edit"): {{vm.classroom.name}}</span>
+                <span ng-if="!vm.classroom.id">@L("CreateNewClassroom")</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <uib-tabset class="tab-container tabbable-line">
+                <uib-tab heading="@L("ClassroomInformations")">
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Name" class="form-control" ng-class="{'edited':vm.classroom.name}" ng-model="vm.classroom.name" required maxlength="@Classroom.MaxNameLength">
+                        <label>@L("Name")*</label>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint md-input-container">
+                        <input type="number" name="MaxStudentAmount" class="form-control" ng-class="{'edited':vm.classroom.maxStudentAmount}" ng-model="vm.classroom.maxStudentAmount" required min="1" max="50">
+                        <label>@L("MaxStudentAmount")*</label>
+                    </div>
+                    <span style="color:red" ng-show="editClassroomDetailForm.MaxStudentAmount.$error.number">@L("NotValidNumber")</span>
+                    <span style="color:red" ng-show="!editClassroomDetailForm.MaxStudentAmount.$valid">@L("NoteMaxStudentAmountInput")</span>
+
+                    <div class="form-group form-md-line-input no-hint">
+                        <select name="Type" class="form-control"
+                                ng-options="option.name for option in vm.typeOptions track by option.id"
+                                ng-model="vm.classroom.classroomTypeSelected">
+                        </select>
+                        <label style="color:#888; font-size:13px">@L("ClassroomType")</label>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        @L("AddStudentForClassroom") <b class="badge badge-primary">{{vm.classroom.studentsAndClassrooms.length}}</b>
+                    </uib-tab-heading>
+                    <div ng-if="vm.totalStudents" busy-if="vm.classroomLoading" class="form">
+                        <form class="horizontal-form">
+                            <div class="form-body" enter-key="vm.getStudentsPagination()">
+                                <div class="row margin-bottom-10">
+                                    <div class="col-md-12">
+                                        <div class="inputs inputs-full-width">
+                                            <div class="portlet-input">
+                                                <div class="input-group">
+                                                    <input ng-model="vm.filterStudentText" auto-focus class="form-control" placeholder="@L("SearchWithThreeDot")" type="text">
+                                                    <span class="input-group-btn">
+                                                        <button ng-click="vm.getStudentsPagination()" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div busy-if="vm.studentLoading" class="table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:40%">@L("Fullname")</th>
+                                                <th style="width:25%">@L("Gender")</th>
+                                                <th style="width:25%">Birth</th>
+                                                <th style="width:10%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="student in vm.students">
+                                                <td>{{student.surname}} {{student.name}}</td>
+                                                <td>{{vm.getGenderAsString(student.gender)}}</td>
+                                                <td>{{student.birth | date: 'dd/MM/yyyy'}}</td>
+                                                <td ng-if="student.attended == 1">
+                                                    <div class="row">
+                                                        <button ng-click="vm.removeStudentFromClassroom(student, vm.classroom)" title="@L("Attended")" class="btn btn-sm btn-default">
+                                                            <i class="fa fa-check"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                                <td ng-if="student.attended == 0">
+                                                    <div class="row">
+                                                        <button ng-click="vm.addStudentToClassroom(student, vm.classroom)" title="@L("Add")" class="btn btn-sm btn-default">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-center">
+                                    <ul uib-pagination total-items="vm.totalUibPaginationStudents" ng-model="vm.currentStudentPage" ng-change="vm.studentPageChanged()" max-size="vm.pagedParams.maxSize" class="pagination-sm" boundary-link-numbers="true"></ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="editClassroomDetailForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

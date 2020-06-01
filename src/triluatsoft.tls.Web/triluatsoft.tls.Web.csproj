@@ -612,6 +612,10 @@
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
     <Content Include="App\tenant\views\hnh\school\classrooms\createOrEditClassroomModal.js" />
+    <Content Include="App\tenant\views\hnh\school\classrooms\editClassroomDetailModal.js" />
+    <Content Include="App\tenant\views\hnh\school\classrooms\index.css">
+      <DependentUpon>index.less</DependentUpon>
+    </Content>
     <Content Include="App\tenant\views\hnh\school\classrooms\index.js" />
     <Content Include="App\tenant\views\hnh\phonebook\createPersonModal.js" />
     <Content Include="App\tenant\views\hnh\phonebook\editPersonModal.js" />
@@ -620,6 +624,9 @@
     </Content>
     <Content Include="App\tenant\views\hnh\phonebook\index.js" />
     <Content Include="App\tenant\views\hnh\phonebook\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="App\tenant\views\hnh\school\classrooms\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="Common\Images\app-logo-small.png" />
@@ -2930,6 +2937,8 @@
     <Content Include="App\tenant\views\hnh\phonebook\editPersonModal.cshtml" />
     <Content Include="App\tenant\views\hnh\school\classrooms\index.cshtml" />
     <Content Include="App\tenant\views\hnh\school\classrooms\createOrEditClassroomModal.cshtml" />
+    <Content Include="App\tenant\views\hnh\school\classrooms\index.less" />
+    <Content Include="App\tenant\views\hnh\school\classrooms\editClassroomDetailModal.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

@@ -1,6 +1,8 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using triluatsoft.tls.HNH.StudentsAndClassrooms;
 
 namespace triluatsoft.tls.HNH.Classrooms
 {
@@ -21,5 +23,7 @@ namespace triluatsoft.tls.HNH.Classrooms
 
         [StringLength(MaxDescriptionLength)]
         public virtual string Description { get; set; }
+
+        public virtual ICollection<StudentAndClassroom> StudentsAndClassrooms { get; set; }
     }
 }

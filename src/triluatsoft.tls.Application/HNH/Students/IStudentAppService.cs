@@ -9,6 +9,8 @@ namespace triluatsoft.tls.HNH.Students
     {
         Task<ListResultDto<StudentListDto>> GetStudents();
 
+        Task<ListResultDto<StudentListDto>> GetStudentsPagination(PagedAndFilteredStudentInput input);
+
         Task<StudentDto> GetStudent(EntityDto input);
 
         Task CreateStudent(InsertOrUpdateStudentInput input);
@@ -16,5 +18,7 @@ namespace triluatsoft.tls.HNH.Students
         Task UpdateStudent(InsertOrUpdateStudentInput input);
 
         Task DeleteStudent(EntityDto input);
+
+        Task<ListResultDto<StudentListDto>> GetStudentsInClassroom(int classroomIdInput);
     }
 }
